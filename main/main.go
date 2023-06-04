@@ -27,6 +27,9 @@ func main() {
 		}
 	} else if len(os.Args) >= 3 {
 		//* executing function for multiple args
+		if os.Args[1] == "" {
+			return
+		}
 		asciiART.PrintART(os.Args[1], os.Args[2])
 	}
 }
