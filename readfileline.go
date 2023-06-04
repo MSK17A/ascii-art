@@ -7,11 +7,12 @@ import (
 )
 
 func PrintFileLine(lineNumber int, filePath string) {
+	//* this program scans the banner to get the art
 	file, err := os.Open(filePath)
 	// If there is an error, then handle it
 	if err != nil {
-		fmt.Println("Error opening file:", err)
-		return
+		fmt.Println("Error opening file: ", err, ", please enter a valid banner file name")
+		os.Exit(1)
 	}
 	defer file.Close()
 
@@ -26,7 +27,6 @@ func PrintFileLine(lineNumber int, filePath string) {
 		// save the line and stop the loop
 		if lineCount == lineNumber {
 			line = scanner.Text()
-			// line += "\n"
 			break
 		}
 	}

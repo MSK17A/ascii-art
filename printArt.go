@@ -5,7 +5,11 @@ import (
 	"strings"
 )
 
+
+//* this function prints the art while handling newlines
+
 func PrintART(str string, fontname string) {
+	//* in the case newlines and only newlines were detected, the program prints a new line and exits 
 	if str == "\\n" {
 		fmt.Println()
 		return
