@@ -19,8 +19,10 @@ func Print_Each_Rune_Line(letters_to_be_colored string, str string, fontname str
 						idx++
 					} else {
 						if ContainsLetter(letters_to_be_colored, string(char)) {
+							// Start printing the colored letler ART
 							PrintFileLine(MapART(rune(char))+i, MapFont(fontname), color)
 						} else {
+							// Start printing the letler ART in default color
 							PrintFileLine(MapART(rune(char))+i, MapFont(fontname), "")
 						}
 
@@ -28,8 +30,10 @@ func Print_Each_Rune_Line(letters_to_be_colored string, str string, fontname str
 				}
 			} else {
 				if ContainsLetter(letters_to_be_colored, string(char)) {
+					// Start printing the colored letler ART
 					PrintFileLine(MapART(rune(char))+i, MapFont(fontname), color)
 				} else {
+					// Start printing the letler ART in default color
 					PrintFileLine(MapART(rune(char))+i, MapFont(fontname), "")
 				}
 
