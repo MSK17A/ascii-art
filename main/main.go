@@ -2,34 +2,33 @@ package main
 
 import (
 	"asciiART"
+	"flag"
 	"fmt"
 	"os"
 )
 
 func main() {
-	//* handling invalid arguments
 	if len(os.Args) < 2 {
 		fmt.Print()
 	} else if len(os.Args) >= 2 && len(os.Args) < 3 {
-		//* handling null input text
 		if os.Args[1] == "" {
 			fmt.Print()
 		} else {
-			//* handling invalid charachters
-			for _, v := range os.Args[1] {
-				if v < ' ' || v > '~' {
-					fmt.Println("Invalid charachters detected")
-					return
-				}
-			}
-			//* executing function
-			asciiART.PrintART(os.Args[1], "standard")
+			asciiART.PrintART("",os.Args[1], "standard", "white")
 		}
 	} else if len(os.Args) >= 3 {
-		//* executing function for multiple args
-		if os.Args[1] == "" {
-			return
+		//useColor := flag.Bool("color", false, "display colorized output")
+		colorname := flag.String("color", "", "coloring")
+		flag.Parse()
+		if *colorname != "" {
+			colorvalue := *colorname
+			if len(os.Args) <= 3 {
+				asciiART.PrintART("",os.Args[2], "standard", colorvalue)
+			} else {
+				asciiART.PrintART(os.Args[2],os.Args[3], "standard", colorvalue)
+			}
+		} else {
+			asciiART.PrintART("",os.Args[1], os.Args[2], "white")
 		}
-		asciiART.PrintART(os.Args[1], os.Args[2])
 	}
 }

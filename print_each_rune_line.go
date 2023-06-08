@@ -2,7 +2,7 @@ package asciiART
 
 import "fmt"
 
-func Print_Each_Rune_Line(str string, fontname string) {
+func Print_Each_Rune_Line(letters_to_be_colored string, str string, fontname string, color string) {
 
 	//* Iterate through eight lines
 	for i := 0; i < 8; i++ {
@@ -18,12 +18,21 @@ func Print_Each_Rune_Line(str string, fontname string) {
 						fmt.Print("\t")
 						idx++
 					} else {
-						PrintFileLine(MapART(rune(char))+i, "../standard.txt")
+						if ContainsLetter(letters_to_be_colored, string(char)) {
+							PrintFileLine(MapART(rune(char))+i, MapFont(fontname), color)
+						} else {
+							PrintFileLine(MapART(rune(char))+i, MapFont(fontname), "white")
+						}
+
 					}
 				}
 			} else {
+				if ContainsLetter(letters_to_be_colored, string(char)) {
+					PrintFileLine(MapART(rune(char))+i, MapFont(fontname), color)
+				} else {
+					PrintFileLine(MapART(rune(char))+i, MapFont(fontname), "white")
+				}
 
-				PrintFileLine(MapART(rune(char))+i, MapFont(fontname))
 			}
 		}
 		fmt.Print("\n") //* prints newline to start printing the rest of the art
