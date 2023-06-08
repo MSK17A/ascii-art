@@ -14,7 +14,7 @@ func main() {
 		if os.Args[1] == "" {
 			fmt.Print()
 		} else {
-			asciiART.PrintART("",os.Args[1], "standard", "white")
+			asciiART.PrintART("",os.Args[1], "standard", "")
 		}
 	} else if len(os.Args) >= 3 {
 		//useColor := flag.Bool("color", false, "display colorized output")
@@ -28,7 +28,7 @@ func main() {
 				asciiART.PrintART(os.Args[2],os.Args[3], "standard", colorvalue)
 			}
 		} else {
-			asciiART.PrintART("",os.Args[1], os.Args[2], "white")
+			asciiART.PrintART("",os.Args[1], os.Args[2], "")
 		}
 	}
 }

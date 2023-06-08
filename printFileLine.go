@@ -30,8 +30,11 @@ func PrintFileLine(lineNumber int, filePath string, color string) {
 			break
 		}
 	}
-	//fmt.Print(line)
-	Print_Colorize(color, line)
+	if color == "" {
+		fmt.Print(line)
+	} else {
+		Print_Colorize(color, line)
+	}
 
 	// Check for any errors during scanning
 	if err := scanner.Err(); err != nil {

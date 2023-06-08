@@ -21,7 +21,7 @@ func Print_Each_Rune_Line(letters_to_be_colored string, str string, fontname str
 						if ContainsLetter(letters_to_be_colored, string(char)) {
 							PrintFileLine(MapART(rune(char))+i, MapFont(fontname), color)
 						} else {
-							PrintFileLine(MapART(rune(char))+i, MapFont(fontname), "white")
+							PrintFileLine(MapART(rune(char))+i, MapFont(fontname), "")
 						}
 
 					}
@@ -30,7 +30,7 @@ func Print_Each_Rune_Line(letters_to_be_colored string, str string, fontname str
 				if ContainsLetter(letters_to_be_colored, string(char)) {
 					PrintFileLine(MapART(rune(char))+i, MapFont(fontname), color)
 				} else {
-					PrintFileLine(MapART(rune(char))+i, MapFont(fontname), "white")
+					PrintFileLine(MapART(rune(char))+i, MapFont(fontname), "")
 				}
 
 			}
