@@ -5,7 +5,7 @@
 The program will not accept any invalid words (that are above the decimal ascii value 126)
 
 ## Usage
-The program accepts 2 argments, alphanumerics, and symbols, and the other argument is banner type</h3>
+`go run main.go [OPTIONS] <letters_to_be_colored> <input_string> <banner_name>`
 
 ### Example
-`go run main.go --color=red "HA "Hello ARTs"`
+`go run main.go --color=red "HA" "Hello ARTs"`
