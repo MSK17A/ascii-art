@@ -38,8 +38,10 @@ func main() {
 	colorname := flag.String("color", "", "coloring")
 	flag.Parse()
 
-	if len(os.Args) == 2 {
+	if len(os.Args) == 2 && os.Args[1] != "" {
 		asciiART.PrintART("",os.Args[1], "standard", "")
+	} else if *colorname =="" && len(os.Args) == 3 && os.Args[2] != "" && os.Args[3] != ""{
+		asciiART.PrintART("",os.Args[1], os.Args[2], "")
 	} else if *colorname !="" && len(os.Args) == 3 {
 		asciiART.PrintART("",os.Args[2], "standard", *colorname)
 	} else if *colorname !="" && len(os.Args) == 4 {
