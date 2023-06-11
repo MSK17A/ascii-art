@@ -4,6 +4,9 @@ import "fmt"
 
 func Print_Each_Rune_Line(letters_to_be_colored string, str string, fontname string, color string) {
 
+	string_first_char_idx, sub_str_len := ContainsString(letters_to_be_colored, str)
+	sub_count := 0
+	fmt.Println(string_first_char_idx)
 	// if there is parts to be colored
 	if letters_to_be_colored != "" {
 
@@ -21,9 +24,10 @@ func Print_Each_Rune_Line(letters_to_be_colored string, str string, fontname str
 							fmt.Print("\t")
 							idx++
 						} else {
-							if ContainsLetter(letters_to_be_colored, string(char)) {
+							if string_first_char_idx != -1 && sub_count <= sub_str_len {
 								// Start printing the colored letler ART
 								PrintFileLine(MapART(rune(char))+i, MapFont(fontname), color)
+								sub_count++
 							} else {
 								// Start printing the letler ART in default color
 								PrintFileLine(MapART(rune(char))+i, MapFont(fontname), "")
@@ -32,9 +36,10 @@ func Print_Each_Rune_Line(letters_to_be_colored string, str string, fontname str
 						}
 					}
 				} else {
-					if ContainsLetter(letters_to_be_colored, string(char)) {
+					if string_first_char_idx != -1 && sub_count <= sub_str_len {
 						// Start printing the colored letler ART
 						PrintFileLine(MapART(rune(char))+i, MapFont(fontname), color)
+						sub_count++
 					} else {
 						// Start printing the letler ART in default color
 						PrintFileLine(MapART(rune(char))+i, MapFont(fontname), "")
