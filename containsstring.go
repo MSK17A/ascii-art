@@ -1,19 +1,26 @@
 package asciiART
 
-import "strings"
-
 /*
 	This function will test if the letter to be printed is to be colored or not
 	inputs:
 		sub_str:		letters to be colored
-		input_str:	the letter to be tested
+		input_str:		the letter to be tested
 
 	output:
-		index			index of the first letter
+		indicies		positions of each found word (first char pos)
+		sub_len			length of the sub-string
+
 */
 
-func ContainsString(sub_str string, input_str string) (int, int) {
-	index := strings.Index(input_str, sub_str)
+func ContainsString(sub_str string, input_str string) ([]int, int) {
+	//index := strings.Index(input_str, sub_str)
+	var indicies []int
+	sub_len := len(sub_str)
 
-	return index, len(sub_str)
+	for idx := 0; idx <= len(input_str) && idx+sub_len <= len(input_str); idx++ {
+		if sub_str == input_str[idx:idx+sub_len] {
+			indicies = append(indicies, idx)
+		}
+	}
+	return indicies, sub_len
 }
